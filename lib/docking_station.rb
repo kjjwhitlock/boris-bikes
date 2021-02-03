@@ -1,7 +1,17 @@
 # in lib/docking_station.rb
 class DockingStation
+  attr_reader :bikes
+
+  def initialize
+  @bikes = 0
+  end
+
   def release_bike
     Bike.new
+  end
+  def dock_bike
+    @bikes += 1
+    puts "this should be returning #{@bikes}"
   end
 end
 
@@ -10,9 +20,6 @@ class Bike
 
   end
 end
-
-docking_station = DockingStation.new
-
-bike = docking_station.release_bike
-
-bike.working?
+station = DockingStation.new
+station.dock_bike
+puts station.bikes
