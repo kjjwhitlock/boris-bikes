@@ -7,11 +7,15 @@ class DockingStation
   end
 
   def release_bike
-    Bike.new
+    if @bikes > 0
+      Bike.new
+    else
+      raise Exception.new "no bikes here"
+    end
   end
+
   def dock_bike
     @bikes += 1
-    puts "this should be returning #{@bikes}"
   end
 end
 
@@ -20,6 +24,7 @@ class Bike
 
   end
 end
-station = DockingStation.new
-station.dock_bike
-puts station.bikes
+
+#station = DockingStation.new
+#station.dock_bike
+#puts station.bikes

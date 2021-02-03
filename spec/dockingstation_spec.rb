@@ -5,7 +5,9 @@ describe 'DockingStationTest' do
     expect(DockingStation.new).to respond_to(:release_bike)
   end
   it 'get the bike and check if bike is working' do
-    expect(DockingStation.new.release_bike).to respond_to(:working?)
+    station = DockingStation.new
+    station.dock_bike
+    expect(station.release_bike).to respond_to(:working?)
   end
   it 'docks the bike' do
     expect(DockingStation.new).to respond_to(:dock_bike)
@@ -14,4 +16,9 @@ describe 'DockingStationTest' do
     station = DockingStation.new
     expect{station.dock_bike}.to change{station.bikes}.from(0).to(1)
   end
+  it 'raises an error if user tries to release non-existent bike' do
+    station = DockingStation.new
+    expect { station.release_bike }.to raise_exception("no bikes here")
+  end
+
 end
