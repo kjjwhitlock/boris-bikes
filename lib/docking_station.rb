@@ -1,11 +1,15 @@
 # in lib/docking_station.rb
 class DockingStation
+<<<<<<< HEAD
   attr_reader :bikes, :capacity
+=======
+  attr_reader :bikes
+
+>>>>>>> parent of f9b92eb (update files after challenge 17)
   DEFAULT_CAPACITY = 20
 
-  def initialize(capacity = DEFAULT_CAPACITY)
+  def initialize
     @bikes = []
-    @capacity = capacity
   end
 
   def release_bike
@@ -24,7 +28,15 @@ class DockingStation
 
   private
   def full?
+<<<<<<< HEAD
     @bikes.length == @capacity ? true : false
+=======
+    if @bikes.length == DEFAULT_CAPACITY
+      true
+    else
+      false
+    end
+>>>>>>> parent of f9b92eb (update files after challenge 17)
   end
 
   def empty?
