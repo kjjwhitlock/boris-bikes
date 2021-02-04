@@ -7,18 +7,35 @@ class DockingStation
   end
 
   def release_bike
-    if @bikes.length > 0
-      Bike.new
-    else
+    if empty?
       raise Exception.new "no bikes here"
+    else
+      Bike.new
     end
   end
 
-  def dock_bike(bike)
-    if @bikes.length < 20
-      @bikes << bike
-    elsif @bikes.length >= 20
+  def dock(bike)
+    if full?
       raise("bike rack is full")
+    else
+      @bikes << bike
+    end
+  end
+
+  private
+  def full?
+    if @bikes.length == 20
+      true
+    else
+      false
+    end
+  end
+
+  def empty?
+    if @bikes.length ==0
+      true
+    else
+      false
     end
   end
 end
