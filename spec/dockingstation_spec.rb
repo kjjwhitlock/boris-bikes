@@ -6,15 +6,15 @@ describe 'DockingStationTest' do
   end
   it 'get the bike and check if bike is working' do
     station = DockingStation.new
-    station.dock_bike(Bike.new)
+    station.dock(Bike.new)
     expect(station.release_bike).to respond_to(:working?)
   end
   it 'docks the bike' do
-    expect(DockingStation.new).to respond_to(:dock_bike)
+    expect(DockingStation.new).to respond_to(:dock)
   end
   it 'docking the bike increases total of bikes in docking station' do
     station = DockingStation.new
-    expect { station.dock_bike(Bike.new) }.to change{station.bikes.length}.from(0).to(1)
+    expect { station.dock(Bike.new) }.to change{station.bikes.length}.from(0).to(1)
   end
   it 'raises an error if user tries to release non-existent bike' do
     station = DockingStation.new
@@ -23,7 +23,7 @@ describe 'DockingStationTest' do
   it 'raises an error if user tries to dock bike when station full' do
     station = DockingStation.new
     bike = Bike.new
-    expect { 21.times { station.dock_bike(bike) } }.to raise_error("bike rack is full")
+    expect { 21.times { station.dock(bike) } }.to raise_error("bike rack is full")
   end
 
 end
