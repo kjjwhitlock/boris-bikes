@@ -5,9 +5,12 @@ class DockingStation
 =======
   attr_reader :bikes
 
+<<<<<<< HEAD
 >>>>>>> parent of f9b92eb (update files after challenge 17)
   DEFAULT_CAPACITY = 20
 
+=======
+>>>>>>> parent of 73b94fe (update files with challenge 16)
   def initialize
     @bikes = []
   end
@@ -29,9 +32,13 @@ class DockingStation
   private
   def full?
 <<<<<<< HEAD
+<<<<<<< HEAD
     @bikes.length == @capacity ? true : false
 =======
     if @bikes.length == DEFAULT_CAPACITY
+=======
+    if @bikes.length == 20
+>>>>>>> parent of 73b94fe (update files with challenge 16)
       true
     else
       false
@@ -40,7 +47,15 @@ class DockingStation
   end
 
   def empty?
+<<<<<<< HEAD
     @bikes.length == 0 ? true : false
+=======
+    if @bikes.length ==0
+      true
+    else
+      false
+    end
+>>>>>>> parent of 73b94fe (update files with challenge 16)
   end
 end
 
