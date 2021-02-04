@@ -44,19 +44,4 @@ describe 'DockingStationTest' do
     expect(station.capacity).to eq(20)
   end
 
-  it 'docking station will not release a broken bike' do
-    station = DockingStation.new
-    bike = Bike.new
-    bike.report_broken
-    station.dock(bike)
-    expect(station.release_bike).to_not respond_to(:working?)
-  end
-
-  it 'docking station will accept broken bikes' do
-    station = DockingStation.new
-    bike = Bike.new
-    bike.report_broken
-    expect { station.dock(bike) }.to change { station.bikes }.from([]).to([bike])
-  end
-
 end
