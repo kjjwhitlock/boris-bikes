@@ -23,8 +23,7 @@ describe 'DockingStationTest' do
   it 'raises an error if user tries to dock bike when station full' do
     station = DockingStation.new
     bike = Bike.new
-    test = DockingStation::DEFAULT_CAPACITY + 1
-    expect { test.times { station.dock(bike) } }.to raise_error("bike rack is full")
+    expect { 21.times { station.dock(bike) } }.to raise_error("bike rack is full")
   end
 
 <<<<<<< HEAD
